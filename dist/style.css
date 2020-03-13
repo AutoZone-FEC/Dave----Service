@@ -3,32 +3,72 @@
   height: 200px;
   align-items: center;
   overflow-x: scroll;
+  margin:0;
+  padding: 0;
   }
 
   .flex-box img{
-    height: 100px;
-    width: 100px
-
+    height: 40px;
+    width: 40px;
+    padding:2px;
+    border: 1px solid black;
+    
+  }
+  .test{
+    padding:5px;
+    
   }
 
   .flex-box li{
     list-style-type: none;
     display: inline-block;
     white-space: nowrap;
+    
   }
 
   .main{
-    height: 400px;
-    width: auto;
+    width: 312px;
+    height: 300px;
     
   }
 
   .parentpic{
     text-align: center;
+    object-fit: contain;
+    
   }
 
   .childpics{
     display: flex;
     align-items:center;
     flex-direction: column;
+  }
+
+  .arrow-right{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    border: solid gray;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    height:4px;
+    width: 4px;
+  }
+
+  .arrow-button{
+    border: none;
+    height:10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .arrow-left{
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    border: solid gray;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    height:4px;
+    width: 4px;
   }

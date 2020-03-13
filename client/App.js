@@ -27,17 +27,21 @@ class App extends React.Component{
 
   render(){
       return(
-          <div className="childpics">
+          <div >
             <div className="parentpic">
               
-            
             <img className="main" src={this.state.main}/>
               
             </div>
+            <div className="childpics">
 
-            <ul className="flex-box">
+              <ul className="flex-box">
+                <button className="arrow-button"><i className="arrow-left"></i></button>
                 <Photos onClick={this.handleOnClick} pics={this.state.pics} />
-            </ul>
+                <button className="arrow-button"><i className="arrow-right"></i></button>
+              </ul>
+
+            </div>
 
 
           </div>

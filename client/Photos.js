@@ -8,8 +8,12 @@ const Photos = (props) =>{
     <>
     {props.pics.map((pic, index) =>{
         return(
-            <li onClick={props.onClick} key={index} >
-                <img src={pic}/>
+            
+            <li  key={index} >
+                <div className="test">
+                <img onClick={props.onClick} src={pic}/>
+
+                </div>
             </li>
         )
 
