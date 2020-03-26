@@ -1,22 +1,36 @@
 .flex-box {
   display: flex;
-  height: 200px;
+  height: 75px;
   align-items: center;
   overflow-x: scroll;
   margin:0;
   padding: 0;
+  
   }
 
   .flex-box img{
     height: 40px;
     width: 40px;
     padding:2px;
-    border: 1px solid black;
-    
+    border: 1px solid black; 
   }
-  .test{
-    padding:5px;
-    
+
+  .middlebuttons{
+    text-align:center; 
+  }
+
+  .viewlarger{
+    color:white;
+    background-color: darkslategrey;
+  }
+
+
+  .vehiclespecific{
+    border-color: orange;
+  }
+
+  .middlespan{
+    padding:41px;
   }
 
   .flex-box li{
@@ -25,7 +39,6 @@
     white-space: nowrap;
     
   }
-
   .main{
     width: 312px;
     height: 300px;
@@ -42,6 +55,7 @@
     display: flex;
     align-items:center;
     flex-direction: column;
+    
   }
 
   .arrow-right{
@@ -57,6 +71,8 @@
 
   .arrow-button{
     border: none;
+    outline:none;
+    cursor: pointer;
     height:10px;
     margin-bottom: 10px;
     

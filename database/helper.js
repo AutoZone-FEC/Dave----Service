@@ -1,0 +1,14 @@
+const db = require('./db');
+
+const getPhotos = function(id, callback){
+   db.query('SELECT image1, image2, image3, image4, image5, image6 from products WHERE id=?', id, (err, result) =>{
+       if (err){
+           callback(err, null)
+       }else{
+           callback(null, result)
+       }
+   })
+
+}
+
+module.exports = { getPhotos }

@@ -1,21 +1,24 @@
 import React from "react";
-import App from "./App";
 
-const Photos = (props) =>{
+
+const Photos = ({ onClick, pics }) =>{
 
 
     return (
     <>
-    {props.pics.map((pic, index) =>{
+    {console.log(typeof pics)}
+    {pics.slice(0,4).map((pic, index) =>{
+        
         return(
             
-            <li  key={index} >
+            <li  style={{marginLeft: index == 0 ? 0 : 10}}   key={index} >
                 <div className="test">
-                <img onClick={props.onClick} src={pic}/>
+                <img onClick={onClick} src={pic !=="" ? pic : '/images/default.png'}/>
 
                 </div>
             </li>
         )
+
 
         })}
     </>
