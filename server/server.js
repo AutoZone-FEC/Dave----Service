@@ -15,10 +15,9 @@ app.get('/getPhotos/:id', (req, res) =>{
         if (err){
             res.send("you have an error bro")
         }else{
-            console.log(result)
+            
             let pictures = Object.values(result[0]);
-            console.log("here is your pics")
-            console.log(pictures);
+        
             res.send(pictures);
         }
     })
