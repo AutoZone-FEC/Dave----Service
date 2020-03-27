@@ -91,7 +91,7 @@ class App extends React.Component{
     <div>
       <div className="outer-modal">
           <div className="modal-top">
-            <span className="modal-header-text">Product Name</span>
+            <span className="modal-header-text">{this.state.productName}</span>
             <button onClick={() => this.setState({picturePopupShowed: false})} className="modal-button">CLOSE X</button>
           </div>
         <div className="middle-modal">
