@@ -12,7 +12,7 @@ class App extends React.Component{
       super(props)
   
       this.state = {
-        main: './src/images/cannon.png',
+        main: './src/images/cannon.jpg',
         pics: [],//["images/shipwheel.jpg", 'images/piratestuff.jpg', 'images/sword.jpg', 'images/treasurechest.jpg', 'images/anchor.jpg'],
         picturePopupShowed: false,
         productName: "Cannon",// going to get form danielle
