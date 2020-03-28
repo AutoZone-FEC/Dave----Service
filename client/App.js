@@ -12,11 +12,11 @@ class App extends React.Component{
       super(props)
   
       this.state = {
-        main: './src/images/cannon.jpg',
+        main: 'images/cannon.png',
         pics: [],//["images/shipwheel.jpg", 'images/piratestuff.jpg', 'images/sword.jpg', 'images/treasurechest.jpg', 'images/anchor.jpg'],
         picturePopupShowed: false,
         productName: "Cannon",// going to get form danielle
-        productId: 2
+        productId: 3
       
       }
   
@@ -43,7 +43,8 @@ class App extends React.Component{
       if (err){
         console.log(err)
       }else {
-        this.setState({pics: result.data, main: result.data[0]});
+        let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
+        this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, id: result.data.id});
       }
     });
   }

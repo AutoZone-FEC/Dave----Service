@@ -18,9 +18,11 @@ app.get('/getPhotos/:id', (req, res) =>{
             res.send("you have an error bro")
         }else{
             
-            let pictures = Object.values(result[0]);
+
+            let productName = result[0].productName
+            let pictures = [result[0].image1, result[0].image2, result[0].image3, result[0].image4, result[0].image5, result[0].image6];
         
-            res.send(pictures);
+            res.send(result[0]);
         }
     })
 })
