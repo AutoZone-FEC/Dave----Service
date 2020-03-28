@@ -27,6 +27,16 @@ app.get('/getPhotos/:id', (req, res) =>{
     })
 })
 
+app.get('/getProductId/:id', (req, res) =>{
+    getPhotos(req.params.id, (err, result)=>{
+        if (err){
+            res.send("you have an error bro")
+        }else{
+            res.send(result[0].id);
+        }
+    })
+})
+
 
 
 app.listen(8083);

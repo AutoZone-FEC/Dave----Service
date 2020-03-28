@@ -12,7 +12,7 @@ class App extends React.Component{
       super(props)
   
       this.state = {
-        main: 'images/cannon.png',
+        main: localStorage.mainPicturePath ? 'images/cannon.png': localStorage.mainPicturePath,
         pics: [],//["images/shipwheel.jpg", 'images/piratestuff.jpg', 'images/sword.jpg', 'images/treasurechest.jpg', 'images/anchor.jpg'],
         picturePopupShowed: false,
         productName: "Cannon",// going to get form danielle
@@ -24,6 +24,8 @@ class App extends React.Component{
   this.shiftImagesLeft = this.shiftImagesLeft.bind(this)
   this.shiftImagesRight = this.shiftImagesRight.bind(this)
   this.getProductImages = this.getProductImages.bind(this)
+  // this.getPictureId = this.getPictureId.bind(this)
+  // this.updateMyComponent = this.updateMyComponent.bind(this)
   }
   
 
@@ -44,18 +46,6 @@ class App extends React.Component{
     
       setInterval(() => { this.updateMyComponent(); }, 1000);
       
-      }
-
-  
-  
-
-  
-  updateMyComponent(){
-    let { productId } = this.state;
-    let localProductID = localStorage.getItem('productID');
-
-    if (productId !== localProductID) {
-      this.setState({productId: localProductID})
       this.getProductImages((err, result) =>{
         if (err){
           console.log(err)
@@ -64,15 +54,60 @@ class App extends React.Component{
           this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
         }
       });
-    }
-    
+        // this.getProductImages((err, result) =>{
+        //   if (err){
+        //     console.log(err)
+        //   }else {
+        //     let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
+        //     this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+        //   }
+        // });
+
+      }
     
 
-  }
+  
+  
+      updateMyComponent(){
+        let { productId } = this.state;
+        console.log(productId)
+        let localProductID = localStorage.getItem('productID');
+    
+        if (productId !== localProductID) {
+          this.setState({productId: localProductID})
+          this.getProductImages((err, result) =>{
+            if (err){
+              console.log(err)
+            }else {
+              let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
+              this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+            }
+          });
+        }
+        
+        
+    
+      }
+    
+  
+    
+  // getPictureId(callback){
+  //   Axios.get(`http:localhost:8083/getProductId/${this.state.productId}`)
+  //   .then((result)=>{
+  //     callback(null, result);
+  //   })
+  //   .catch((error)=>{
+  //     callback(error, null);
+  //   })
+  // }
+  
   
   handleOnClick(event){
+    console.log(localStorage.mainPicturePath)
     event.preventDefault();
-    this.setState({main: event.target.src});
+    
+    localStorage.mainPicturePath = event.target.src;
+    this.setState({main: event.target.src });
   }
 
   shiftImagesRight(event){

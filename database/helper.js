@@ -11,6 +11,16 @@ const getPhotos = function(id, callback){
 
 }
 
+const getPictureId = function(id, callback){
+    db.query('SELECT id from products where id=?', id, (err, result) =>{
+        if (err){
+            callback(err, null)
+        }else{
+            callback(null, result)
+        } 
+    })
+}
+
 
 
 module.exports = { getPhotos }
