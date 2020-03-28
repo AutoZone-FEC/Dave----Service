@@ -4,10 +4,12 @@ const port = 8083;
 const path = require('path');
 const {getPhotos} = require('../database/helper');
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
 app.use(express.static(path.join(__dirname, '../dist/')));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cors());
 
 
 app.get('/getPhotos/:id', (req, res) =>{
