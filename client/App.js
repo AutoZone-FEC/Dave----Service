@@ -25,6 +25,7 @@ class App extends React.Component{
   this.shiftImagesRight = this.shiftImagesRight.bind(this)
   this.getProductImages = this.getProductImages.bind(this)
   }
+  
 
   getProductImages(callback){
     Axios.get(`http://localhost:8083/getPhotos/${this.state.productId}`)
@@ -36,17 +37,37 @@ class App extends React.Component{
     })
     
   }
-
+  
+  
+  
   componentDidMount(){
-
-    this.getProductImages((err, result) =>{
-      if (err){
-        console.log(err)
-      }else {
-        let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
-        this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, id: result.data.id});
+    
+      setInterval(() => { this.updateMyComponent(); }, 1000);
+      
       }
-    });
+
+  
+  
+
+  
+  updateMyComponent(){
+    let { productId } = this.state;
+    let localProductID = localStorage.getItem('productID');
+
+    if (productId !== localProductID) {
+      this.setState({productId: localProductID})
+      this.getProductImages((err, result) =>{
+        if (err){
+          console.log(err)
+        }else {
+          let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
+          this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+        }
+      });
+    }
+    
+    
+
   }
   
   handleOnClick(event){
