@@ -12,11 +12,11 @@ class App extends React.Component{
       super(props)
   
       this.state = {
-        main: '../dist/images/default.png',
+        main: 'images/Bedazzled.png',
         pics: [],//["images/shipwheel.jpg", 'images/piratestuff.jpg', 'images/sword.jpg', 'images/treasurechest.jpg', 'images/anchor.jpg'],
         picturePopupShowed: false,
         productName: "Cannon",// going to get form danielle
-        productId: 1
+        productId: 2
       
       }
   
