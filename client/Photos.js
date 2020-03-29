@@ -6,7 +6,7 @@ const Photos = ({ onClick, pics }) =>{
 
     return (
     <>
-    {console.log(typeof pics)}
+    
     {pics.slice(0,4).map((pic, index) =>{
         
         return(
