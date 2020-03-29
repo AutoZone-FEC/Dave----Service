@@ -30,7 +30,7 @@ class App extends React.Component{
   
 
   getProductImages(callback){
-    Axios.get(`http://localhost:8083/getPhotos/${this.state.productId}`)
+    Axios.get(`http://DaveService-env.eba-pbpnqtp3.us-east-2.elasticbeanstalk.com/${this.state.productId}`)
     .then((result)=>{
       callback(null, result);
     })
