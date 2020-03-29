@@ -25,7 +25,7 @@ class App extends React.Component{
   this.shiftImagesRight = this.shiftImagesRight.bind(this)
   this.getProductImages = this.getProductImages.bind(this)
   // this.getPictureId = this.getPictureId.bind(this)
-  // this.updateMyComponent = this.updateMyComponent.bind(this)
+  this.updateMyComponent = this.updateMyComponent.bind(this)
   }
   
 
@@ -44,7 +44,8 @@ class App extends React.Component{
   
   componentDidMount(){
     
-      setInterval(() => { this.updateMyComponent(); }, 1000);
+      setInterval(() => { if (!localStorage.updated){
+        this.updateMyComponent(); }}, 1000);
       
       this.getProductImages((err, result) =>{
         if (err){
@@ -52,6 +53,7 @@ class App extends React.Component{
         }else {
           let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
           this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+          
         }
       });
         // this.getProductImages((err, result) =>{
@@ -79,9 +81,11 @@ class App extends React.Component{
             if (err){
               console.log(err)
             }else {
-              let pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
+              var pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
               this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+              localStorage.updated = true;
             }
+            
           });
         }
         
