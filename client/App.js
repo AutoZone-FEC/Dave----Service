@@ -69,10 +69,12 @@ class App extends React.Component{
       updateMyComponent(){
         
         let { productId } = this.state;
-        // console.log(productId)
-        let localProductID = localStorage.getItem('productID');
+        // console.log("product id:", productId)
+        let localProductID = parseInt(localStorage.productID);
+        // console.log("localProductID:", parseInt(localProductID))
     
         if (productId !== localProductID) {
+          // console.log("the if statement")
           this.setState({productId: localProductID})
           this.getProductImages((err, result) =>{
             if (err){
@@ -80,9 +82,10 @@ class App extends React.Component{
               
               
             }else {
+
               // console.log("no error in here")
               var pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
-              this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
+              this.setState({pics: pictures,main: result.data.image1, productName: result.data.productName, productId: result.data.id});
               localStorage.updated = true;
               
             }
@@ -111,7 +114,7 @@ class App extends React.Component{
   
   
   handleOnClick(event){
-    console.log(localStorage.mainPicturePath)
+    //console.log(localStorage.mainPicturePath)
     event.preventDefault();
     
     localStorage.mainPicturePath = event.target.src;
