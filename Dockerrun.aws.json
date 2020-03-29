@@ -1,0 +1,12 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "davehastings/dave-service"
+    },
+    "Ports": [
+      {
+        "ContainerPort": "8083"
+      }
+    ]
+  }
+  

@@ -44,7 +44,7 @@ class App extends React.Component{
   
   componentDidMount(){
     
-      setInterval(() => { if (!localStorage.updated){
+      setInterval(() => { if (localStorage.updated === false){
         this.updateMyComponent(); }}, 1000);
       
       this.getProductImages((err, result) =>{
@@ -80,6 +80,8 @@ class App extends React.Component{
           this.getProductImages((err, result) =>{
             if (err){
               console.log(err)
+              localStorage.updated = true;
+              
             }else {
               var pictures = [result.data.image1, result.data.image2, result.data.image3, result.data.image4, result.data.image5, result.data.image6];
               this.setState({pics: pictures, main: result.data.image1, productName: result.data.productName, productId: result.data.id});
